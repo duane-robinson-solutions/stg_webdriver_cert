@@ -1,9 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Certification" verbose="1">
-    <test name="challenge1">
+    <test name="challenge2">
         <classes>
-            <class name="challenge1.challenge1"/>
+            <class name="challenge2.challenge2"/>
         </classes>
     </test>
 </suite>
