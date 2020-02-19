@@ -109,13 +109,13 @@ public class challenge2 {
                     clickNextLink();
                 }
                 textOfCar = "";
-
+                Assert.assertTrue(itemCount > 0);
             }
 
 
         }
-        Assert.assertTrue(itemCount > 0);
-        System.out.println("PORSCHE" + " Is listed a total number of " + itemCount + " times.");
+
+        System.out.println(textOfCar + " Is listed a total number of " + itemCount + " times.");
     }
 
     public void clickNextLink(){
