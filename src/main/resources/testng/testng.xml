@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="UIP Website Tests" verbose="1" parallel="tests" thread-count="4">
+
+    <parameter name="browser" value="chrome" />
+
+    <suite-files>
+<!--        <suite-file path="pages/registration.xml" />-->
+        <!--<suite-file path="browsers/chrome.xml" />-->
+        <!--<suite-file path="browsers/firefox.xml" />-->
+        <!--<suite-file path="browsers/edge.xml" />-->
+        <!--<suite-file path="browsers/ie.xml" />-->
+    </suite-files>
+
+</suite>
