@@ -1,23 +1,24 @@
 package Exercises;
 
 import base.TestBase;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import pages.copart;
 import utils.GeneralUtilities;
 
+import java.io.File;
 import java.net.MalformedURLException;
 
 
-public class Challenge5 {
+public class Challenge6 {
 
     public GeneralUtilities generalUtilities;
     public copart copart;
     public TestBase testbase;
     public String numOfFibSeries;
-
-
-
 
 
     @BeforeSuite
@@ -29,15 +30,15 @@ public class Challenge5 {
         System.out.println("All done!!!");
     }
 
-  @BeforeClass
-         public void initalizeClass() throws MalformedURLException {
-            TestBase base = new TestBase();
+    @BeforeClass
+    public void initalizeClass() throws MalformedURLException {
+        TestBase base = new TestBase();
 
-            WebDriver driver = base.getDriver("chrome");
-              copart = new copart(driver);
-              generalUtilities = new GeneralUtilities();
-              testbase = new TestBase();
+        WebDriver driver = base.getDriver("chrome");
+        copart = new copart(driver);
+        generalUtilities = new GeneralUtilities();
 
+        testbase = new TestBase();
 
 
     }
@@ -65,34 +66,37 @@ public class Challenge5 {
 
 
     @Test(priority = 1)
-    public void searchgopart()  {
-        copart.searchForText("porsche");
+    public void searchgopart() {
+        copart.searchForText("nissan");
 
     }
 
     @Test(priority = 2)
-    public void changeNumOfRecsToView()  {
-      copart.set100RecsPerPage();
+    public void changeNumOfRecsToView() {
+        copart.set100RecsPerPage();
 
     }
 
     @Test(priority = 3)
-    public void showSearchedItems() {
+    public void expandModelstest() {
+        copart.expandModels();
+
+    }
+
+
+    @Test(priority = 4)
+    public void SearchforSpecificModel() {
         try {
-            copart.listPorscheModels();
+            copart.searchForModelText("");
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
 
-    @Test(priority = 4)
-    public void showCarDamages() {
-        try {
-            copart.listDamages();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+    @Test(priority = 5)
+    public void verifyModelExist() throws Exception {
+        copart.verifysearchModel("");
 
     }
 

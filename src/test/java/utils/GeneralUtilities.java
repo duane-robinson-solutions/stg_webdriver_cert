@@ -1,6 +1,9 @@
 package utils;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import java.awt.*;
@@ -137,13 +140,36 @@ public class GeneralUtilities {
         }
     }
 
-    public void printFibonacci(int count){
+
+    public void takeSnapShot(WebDriver webdriver, String fileWithPath) throws Exception {
+
+        //Convert web driver object to TakeScreenshot
+
+        TakesScreenshot scrShot = ((TakesScreenshot) webdriver);
+
+        //Call getScreenshotAs method to create image file
+
+        File SrcFile = scrShot.getScreenshotAs(OutputType.FILE);
+
+        //Move image file to new destination
+
+        File DestFile = new File(fileWithPath);
+
+        //Copy file at destination
+
+        FileUtils.copyFile(SrcFile, DestFile);
+
+
+    }
+
+
+    public void printFibonacci(int count) {
         // Set it to the number of elements you want in the Fibonacci Series
-         maxNumber = count;
+        maxNumber = count;
         int previousNumber = 0;
         int nextNumber = 1;
 
-        System.out.println("Fibonacci Series of "+maxNumber+" numbers:");
+        System.out.println("Fibonacci Series of " + maxNumber + " numbers:");
 
         for (int i = 1; i <= maxNumber; ++i)
         {
@@ -165,4 +191,6 @@ public class GeneralUtilities {
         }
         }
 
+
 }
+
