@@ -17,6 +17,9 @@ public class copart {
 
     private WebDriver driver;
     public int itemCount;
+    public int arrayPosition = 0;
+    public int linkTextLen = 0;
+    public int attributTextLen = 0;
     public GeneralUtilities generalUtilities;
     public List<String> listOfModels = new ArrayList<String>();
     @FindBy(xpath = "//a[contains(text(),'Model')]")
@@ -26,9 +29,15 @@ public class copart {
     private int rearEndCount = 0;
     public String modelOfCar;
     public String damageText;
+    public String attributeText;
+    public String linkText;
     private int frondEndCount = 0;
     public List<String> modelList = new ArrayList<String>(101);
     public List<String> damageList = new ArrayList<String>(101);
+    public List<String> nameurls = new ArrayList<String>(101);
+
+
+    public String[][] namesURL = new String[200][200];
     private int minorCount = 0;
 
     public CountingSort countingSort;
@@ -177,7 +186,33 @@ public class copart {
     }
 
 
+    public void listmakesWithURL() throws Exception {
+
+        WebElement modelsList = driver.findElement(By.xpath("//div[@id='tabTrending']"));
+
+        List<WebElement> allLinks = modelsList.findElements(By.tagName("a"));
+
+        //Traversing through the list and printing its text along with link address
+        for (WebElement link : allLinks) {
+
+            linkText = link.getText();
+            attributeText = (link.getAttribute("href"));
+            //namesURL = new String [linkText][attributeText];
+            System.out.println(linkText + " - " + " " + attributeText);
+
+        }
+
+
+    }
+
 }
+
+
+
+
+
+
+
 
 
 
