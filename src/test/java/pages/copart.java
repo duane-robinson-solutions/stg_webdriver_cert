@@ -1,9 +1,11 @@
 package pages;
 
+import com.google.common.collect.EnumBiMap;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import utils.CountingSort;
 import utils.GeneralUtilities;
+import utils.TestHelpers;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -15,12 +17,16 @@ import java.util.stream.Collectors;
 
 public class copart {
 
-    private WebDriver driver;
+    private final WebDriver driver;
     public int itemCount;
-    public int arrayPosition = 0;
-    public int linkTextLen = 0;
+    public int arrayPointer_one = 0;
+    public int arrayPointer_two = 0;
+    public int arrayPointer_three = 0;
+    public int arrayPointer_four = 0;
     public int attributTextLen = 0;
+    public int numOfItems = 0;
     public GeneralUtilities generalUtilities;
+    public TestHelpers testHelpers;
     public List<String> listOfModels = new ArrayList<String>();
     @FindBy(xpath = "//a[contains(text(),'Model')]")
     public WebElement modelExpandBtn;
@@ -31,10 +37,14 @@ public class copart {
     public String damageText;
     public String attributeText;
     public String linkText;
+    public String allLinksLoadLinkText;
+    public String alllinksAttributeText;
+    public String URLtoLoad;
     private int frondEndCount = 0;
     public List<String> modelList = new ArrayList<String>(101);
     public List<String> damageList = new ArrayList<String>(101);
     public List<String> nameurls = new ArrayList<String>(101);
+    public List<List> modelsAndURLS = new ArrayList<List>(numOfItems);
 
 
     public String[][] namesURL = new String[200][200];
@@ -58,6 +68,7 @@ public class copart {
         this.driver = driver;
         countingSort = new CountingSort();
         generalUtilities = new GeneralUtilities();
+        testHelpers = new TestHelpers(driver);
 
 
     }
@@ -101,7 +112,6 @@ public class copart {
             boolean isPresent = driver.findElements(By.xpath("//div[@id='collapseinside4']//label[1]//abbr[contains(text()," + modelSearchString + ")]")).size() > 0;
         } catch (Exception e) {
             generalUtilities.takeSnapShot(driver, "c://tmp//test.png");
-            ;
             e.printStackTrace();
         }
 
@@ -188,24 +198,68 @@ public class copart {
 
     public void listmakesWithURL() throws Exception {
 
-        WebElement modelsList = driver.findElement(By.xpath("//div[@id='tabTrending']"));
+        Thread.sleep(3000);
 
+        WebElement modelsList = driver.findElement(By.xpath("//div[@id='tabTrending']"));
         List<WebElement> allLinks = modelsList.findElements(By.tagName("a"));
 
         //Traversing through the list and printing its text along with link address
         for (WebElement link : allLinks) {
-
             linkText = link.getText();
             attributeText = (link.getAttribute("href"));
             //namesURL = new String [linkText][attributeText];
             System.out.println(linkText + " - " + " " + attributeText);
-
+            numOfItems++;
         }
+
+        List models = new ArrayList();
+        List linksToClick = new ArrayList();
+
+        WebElement modelsListload = driver.findElement(By.xpath("//div[@id='tabTrending']"));
+        List<WebElement> allLinksload = modelsListload.findElements(By.tagName("a"));
+
+        //Traversing through the list and printing its text along with link address
+        for (WebElement allLinksLoad : allLinksload) {
+            allLinksLoadLinkText = allLinksLoad.getText();
+            alllinksAttributeText = (allLinksLoad.getAttribute("href"));
+            models.add(allLinksLoadLinkText);
+            linksToClick.add(alllinksAttributeText);
+            //namesURL = new String [linkText][attributeText];
+            System.out.println(linkText + " - " + " " + attributeText);
+        }
+        modelsAndURLS.add(models);
+        modelsAndURLS.add(linksToClick);
+
+
+        System.out.println("Number of Items: " + numOfItems);
 
 
     }
 
+    public void verifyLinks() {
+        arrayPointer_one = 0;
+        arrayPointer_three = 1;
+        for (int numArrayItems = 0; numArrayItems <= numOfItems - 1; numArrayItems++) {
+
+            //arrayPointer_one will always be zero, arrayPointer_three will always be one
+            System.out.println("Link Name is: " + modelsAndURLS.get(arrayPointer_one).get(numArrayItems) + " and the URL is " + modelsAndURLS.get(arrayPointer_three).get(numArrayItems));
+            URLtoLoad = (modelsAndURLS.get(arrayPointer_three).get(numArrayItems).toString());
+            driver.get(URLtoLoad);
+            testHelpers.pauseThread(2000);
+
+
+        }
+    }
+
+
 }
+
+
+
+
+
+
+
 
 
 

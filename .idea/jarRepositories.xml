@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteRepositoriesConfiguration">
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repository.apache.org/content/groups/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Maven Central repository" />
+      <option name="url" value="https://repo1.maven.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="icm" />
+      <option name="name" value="icm_repo" />
+      <option name="url" value="http://maven.icm.edu.pl/artifactory/repo/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="http://localhost:8081/nexus/content/groups/public" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="codehausSnapshots" />
+      <option name="name" value="Codehaus Snapshots" />
+      <option name="url" value="https://repository.apache.org/content/groups/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="oracle_jdbcain" />
+      <option name="name" value="main_repo" />
+      <option name="url" value="https://maven.xwiki.org/externals/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="central" />
+      <option name="url" value="https://devops.dws.utah.gov/nexus/content/groups/public" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="jboss.community" />
+      <option name="name" value="JBoss Community repository" />
+      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="main" />
+      <option name="name" value="main_repo" />
+      <option name="url" value="https://repo1.maven.org/maven2/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="icm" />
+      <option name="name" value="icm_repo" />
+      <option name="url" value="http://localhost:8081/nexus/content/groups/public" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="codehausSnapshots" />
+      <option name="name" value="Codehaus Snapshots" />
+      <option name="url" value="http://snapshots.maven.codehaus.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="central" />
+      <option name="url" value="http://central" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo.maven.apache.org/maven2" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="central" />
+      <option name="name" value="Central Repository" />
+      <option name="url" value="https://repo1.maven.org/maven2/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="icm" />
+      <option name="name" value="icm_repo" />
+      <option name="url" value="https://repository.apache.org/content/groups/public/" />
+    </remote-repository>
+    <remote-repository>
+      <option name="id" value="codehausSnapshots" />
+      <option name="name" value="Codehaus Snapshots" />
+      <option name="url" value="http://localhost:8081/nexus/content/groups/public" />
+    </remote-repository>
+  </component>
+</project>

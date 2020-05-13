@@ -11,10 +11,10 @@ import java.util.Date;
 
 public class GenerateRandomData {
 
-    private WebDriver driver;
-    private Person person;
-    private Faker faker;
-    private TestHelpers th;
+    private final WebDriver driver;
+    private final Person person;
+    private final Faker faker;
+    private final TestHelpers th;
 
     public GenerateRandomData(WebDriver driver, Person person, Faker faker) {
         this.driver = driver;

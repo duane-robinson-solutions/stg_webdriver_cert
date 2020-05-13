@@ -67,6 +67,11 @@ public class Challenge7 {
 
     }
 
+    @Test(priority = 2)
+    public void testparsedLinks() throws Exception {
+        copart.verifyLinks();
+
+    }
 
 }
 

@@ -51,17 +51,15 @@ public class FileUtilities {
         }
     }
 
-    public void writeInterpreterDataToFile(List<String> lines) {
+    public void writeDataToFile(List<String> lines) {
         try {
             File output = new File(OUTPUT_FILE);
             boolean create = output.createNewFile();
             BufferedWriter writer = Files.newBufferedWriter(Paths.get(OUTPUT_FILE), StandardOpenOption.APPEND);
 
-            removeRegistrationDataWithUserName(USER_EMAIL);
-
             String date = getTodaysDateAndTime();
-            String interpreter = String.format("Registration data for '%s' in %s, %s:\n", USER_EMAIL, ENVIRONMENT.toUpperCase(), date);
-            writer.write(interpreter);
+            String header = String.format("Data output via write to file Utility '%s' in %s, %s:\n", date);
+            writer.write(header);
 
             for (String line : lines) {
                 writer.write(line + "\n");

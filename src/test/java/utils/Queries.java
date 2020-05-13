@@ -8,13 +8,12 @@ import static utils.GetProperties.USER_EMAIL;
 
 public class Queries {
 
-    private DatabaseUtils dbu = new DatabaseUtils();
-    private DatabaseUtils dbuauto = new DatabaseUtils();
+    private final DatabaseUtils dbu = new DatabaseUtils();
+    private final DatabaseUtils dbuauto = new DatabaseUtils();
     public List<String> subjectList = new ArrayList<String>();
     public List<String> countyList = new ArrayList<String>();
     public List<String> instorgList = new ArrayList<String>();
     public String OCC_PROGRAM_ID = GetProperties.OCC_PROGRAM_ID;
-
 
 
     public String getCACUserId(String userEmail) {

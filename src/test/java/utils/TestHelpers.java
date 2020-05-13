@@ -23,9 +23,9 @@ import static java.lang.Thread.sleep;
 
 public class TestHelpers<Public> {
 
-    private WebDriver driver;
-    private FileUtilities fu;
-    private Queries query;
+    private final WebDriver driver;
+    private final FileUtilities fu;
+    private final Queries query;
 
 
     public TestHelpers(WebDriver driver) {
