@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="stgjavawdcert" />
         <module name="stg_webdriver_cert" />
       </profile>
     </annotationProcessing>

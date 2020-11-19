@@ -1,15 +1,16 @@
 package pages;
 
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.*;
-import utils.CountingSort;
-import utils.GeneralUtilities;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import utils.CountingSort;
+import utils.GeneralUtilities;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.stream.Collectors;
 
 
@@ -98,7 +99,15 @@ public class copart {
     public void verifysearchModel(String modelSearchString) throws Exception {
 
         try {
-            boolean isPresent = driver.findElements(By.xpath("//div[@id='collapseinside4']//label[1]//abbr[contains(text()," + modelSearchString + ")]")).size() > 0;
+            boolean isPresent = driver.findElements(By.id("lot_model_desc" + modelSearchString.toUpperCase())).size() > 0;
+            if (isPresent == true){
+                driver.findElement(By.id("lot_model_desc" + modelSearchString.toUpperCase())).click();
+                System.out.println("Found checkbox for model " + modelSearchString);
+            }else{
+                System.out.println("CHECKBOX NOT FOUND FOR MODEL " + modelSearchString);
+            }
+
+
         } catch (Exception e) {
             generalUtilities.takeSnapShot(driver, "c://tmp//test.png");
             ;

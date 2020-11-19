@@ -1,18 +1,14 @@
 package Exercises;
 
 import base.TestBase;
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import pages.copart;
 import utils.GeneralUtilities;
 
-import java.io.File;
 import java.net.MalformedURLException;
 
-
+//NOTE:  This challenge involves returning an exception
 public class Challenge6 {
 
     public GeneralUtilities generalUtilities;
@@ -87,7 +83,7 @@ public class Challenge6 {
     @Test(priority = 4)
     public void SearchforSpecificModel() {
         try {
-            copart.searchForModelText("");
+            copart.searchForModelText("skyline");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -96,7 +92,8 @@ public class Challenge6 {
 
     @Test(priority = 5)
     public void verifyModelExist() throws Exception {
-        copart.verifysearchModel("");
+    //NOTE: This test MAY return an exception..the catch captures the screen where the exception occurred
+        copart.verifysearchModel("skyline");
 
     }
 

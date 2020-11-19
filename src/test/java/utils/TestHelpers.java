@@ -25,13 +25,13 @@ public class TestHelpers<Public> {
 
     private WebDriver driver;
     private FileUtilities fu;
-    private Queries query;
+
 
 
     public TestHelpers(WebDriver driver) {
         this.driver = driver;
         fu = new FileUtilities();
-        query = new Queries();
+
     }
 
     public void selectComboBoxOption(WebElement element, String option) {

@@ -6,18 +6,14 @@ import org.openqa.selenium.WebElement;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-import static utils.GetProperties.*;
+import static utils.GetProperties.OUTPUT_FILE;
 
 public class FileUtilities {
 
@@ -51,27 +47,6 @@ public class FileUtilities {
         }
     }
 
-    public void writeInterpreterDataToFile(List<String> lines) {
-        try {
-            File output = new File(OUTPUT_FILE);
-            boolean create = output.createNewFile();
-            BufferedWriter writer = Files.newBufferedWriter(Paths.get(OUTPUT_FILE), StandardOpenOption.APPEND);
-
-            removeRegistrationDataWithUserName(USER_EMAIL);
-
-            String date = getTodaysDateAndTime();
-            String interpreter = String.format("Registration data for '%s' in %s, %s:\n", USER_EMAIL, ENVIRONMENT.toUpperCase(), date);
-            writer.write(interpreter);
-
-            for (String line : lines) {
-                writer.write(line + "\n");
-            }
-            writer.write("\n\n");
-            writer.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     public void removeRegistrationDataWithUserName(String userName) {
         try {
