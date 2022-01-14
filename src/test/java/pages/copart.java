@@ -44,14 +44,19 @@ public class copart {
     public CountingSort countingSort;
     private int underCarriageCount = 0;
 
-    @FindBy(xpath = "//button[@class='btn btn-lightblue marginleft15']")
+    @FindBy(xpath = "//form[@id='search-form']/div/div[2]/button")
     public WebElement searchBtn;
 
     @FindBy(xpath = "//input[@id='input-search']")
     public WebElement carSearchtxt;
 
+    @FindBy(xpath = "//body/joyride-step[1]/div[1]/div[1]/div[2]/tour-footer[1]/div[2]/a[1]")
+    public WebElement dontShowAgainLink;
+
     @FindBy(xpath = "//div[contains(@class,'inner-wrap')]//div[contains(@class,'top')]//select[1]//option[3]")
     public WebElement numRecsPerPageDropDwn;
+
+
     private int miscCount = 0;
 
     public copart(WebDriver driver) {
@@ -64,6 +69,7 @@ public class copart {
     }
 
     public void loadGopartSite() {
+        driver.manage().deleteAllCookies();
         driver.get("https://www.copart.com/");
 
 
@@ -81,10 +87,16 @@ public class copart {
 
 
     }
+    //Added this on 01/14/2022 - Because the site has changed significantly
+
+    public void clickOnDontShowAgainLink() {
+        dontShowAgainLink.click();
+
+        }
 
 
     public void set100RecsPerPage() {
-        numRecsPerPageDropDwn.click();
+       numRecsPerPageDropDwn.click();
 
 
     }

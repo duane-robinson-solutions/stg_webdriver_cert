@@ -1,6 +1,7 @@
 package Exercises;
 
 import base.TestBase;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 import pages.copart;
@@ -15,9 +16,6 @@ public class Challenge5 {
     public copart copart;
     public TestBase testbase;
     public String numOfFibSeries;
-
-
-
 
 
     @BeforeSuite
@@ -56,24 +54,22 @@ public class Challenge5 {
     public void afterMethod() {
     }
 
-
     @Test(priority = 0)
     public void goToCopart() throws Exception {
         copart.loadGopartSite();
 
     }
 
-
     @Test(priority = 1)
     public void searchgopart()  {
         copart.searchForText("porsche");
 
     }
-
     @Test(priority = 2)
     public void changeNumOfRecsToView()  {
-      copart.set100RecsPerPage();
-
+      //Added this on 01/14/2022 - Because the site has changed significantly
+        copart.clickOnDontShowAgainLink();
+        copart.set100RecsPerPage();
     }
 
     @Test(priority = 3)
@@ -95,7 +91,6 @@ public class Challenge5 {
         }
 
     }
-
 
 }
 
